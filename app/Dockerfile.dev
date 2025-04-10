@@ -1,0 +1,12 @@
+FROM node:20-bookworm
+
+WORKDIR /app
+
+RUN npm install -g npm@latest
+
+# 依存関係のインストール
+COPY package*.json ./
+RUN npm install
+
+# 開発サーバーの起動
+CMD ["npm", "run", "dev"]
