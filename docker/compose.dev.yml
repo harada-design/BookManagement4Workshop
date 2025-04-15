@@ -2,8 +2,10 @@ services:
   app:
     container_name: bookmanage-app
     build:
-      context: ../app
-      dockerfile: Dockerfile.dev
+      context: ../
+      dockerfile: app/Dockerfile.dev
+    working_dir: /code/app
+    entrypoint: ["/code/docker/entrypoint.sh"]
     restart: always
     depends_on:
       db:
@@ -16,8 +18,8 @@ services:
       - DB_PASSWORD=app_password
       - DB_NAME=app_db
     volumes:
-      - ../app:/app
-      - /app/node_modules
+      - ../:/code
+      - /code/app/node_modules
     ports:
       - "3000:3000"
     healthcheck:
