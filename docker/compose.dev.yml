@@ -22,13 +22,6 @@ services:
       - /code/app/node_modules
     ports:
       - "3000:3000"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
-
   db:
     image: postgres:15
     container_name: bookmanage-db
