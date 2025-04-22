@@ -1,5 +1,6 @@
 #!/bin/bash
 
 cd /code/app
-npm install
-npm run dev
+pnpm approve-builds
+pnpm install --force
+pnpm run dev
